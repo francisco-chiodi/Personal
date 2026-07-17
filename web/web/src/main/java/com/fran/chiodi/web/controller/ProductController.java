@@ -25,7 +25,7 @@ public class ProductController {
     @PostMapping
     public Product makeProduct(@RequestBody Product product){ //incoming data, spring looks at the JSON, grabs it and
         //converts it into a Java Product object.
-        return productRepo.save(product) //save takes the product object translates into sql insert into the db.
+        return productRepo.save(product); //save takes the product object translates into sql insert into the db.
         //return the ipdatet Product object with its id back to the client as JSON respone.
         """
         A client sends a JSON payload with product details via a POST request. This method catches it, 
