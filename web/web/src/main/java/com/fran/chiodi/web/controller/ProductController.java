@@ -1,9 +1,10 @@
-package com.fran.chiodi.web;
+package com.fran.chiodi.web.controller;
 //REST Controller: listen to the port for a extern app (like the front end), so when a HTTP petition is made (GET,POST,
 //PUT,DELETE) this controller talks with the Repo to do the changes on the db by JSON. maps /api/products
 //inyect the repo with a constructor, then create endpoints (routes that defines wich Java methods activates wich each petiton).
-import com.fran.chiodi.web.FrontPage; //entity
-import com.fran.chiodi.web.ProductRepo;
+import com.fran.chiodi.web.repository.ProductRepo;
+import com.fran.chiodi.web.model.Product;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -27,9 +28,6 @@ public class ProductController {
         //converts it into a Java Product object.
         return productRepo.save(product); //save takes the product object translates into sql insert into the db.
         //return the ipdatet Product object with its id back to the client as JSON respone.
-        """
-        A client sends a JSON payload with product details via a POST request. This method catches it, 
-        turns it into a Java object, saves it to the database, and sends the saved product back to confirm it worked.
-        """
+
     }
 }
